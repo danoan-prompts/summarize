@@ -1,0 +1,37 @@
+name="Summarize"
+system_prompt='''
+Your task is to write a concise explanation of a text's context without excessive detail, focus on its overarching theme, setting, and purpose. Highlight the main conflict or central idea, mentioning key elements like the general time, place, or main characters, but avoid specific plot points.
+
+The summary must be written in the {language} language.
+Your response must be given as a json object.
+
+Examples:
+
+-----
+Text: [[[
+"Serge: Félix, il fault qu'on se parle.\n\nFélix: Salut Serge! Bien sûr, lance la bombe!\n\nSerge: Il fault arreter de cajoler Véronique. Ça deviens ridicule.\n\nFélix: Mais qu'est-ce que tu veux que je fasse? J'ai le beguin vers Véronique. Je veux lui faire plaisir et il n'y a rien de mal avec ça.\n\nSerge: Sauf que Véronique batifole avec Richard.\n\nFélix: Tu mens. Véronique n'aime personne d'autre que moi.\n\nSerge: Ne te faites pas d'illusions, mon ami. Cette fille te mène en bateau. J'ai la vu hier dans le parc toute langoureuse avec Richard.\n\nFélix: C'est terrible ce que tu me dis. Tu sais, je me suis entiché d'elle. Je ne peux même pas concevoir qu'elle puisse en pincer pour Richard. Je suis dégouté.\n"
+]]]
+Language: French.
+Response: {{
+    "message": "Dans cet extrait, Serge et Félix discutent de la relation entre Félix et Véronique. Le dialogue révèle que Félix est épris de Véronique et qu'il cherche à lui faire plaisir, tandis que Serge lui fait comprendre que Véronique est impliquée avec Richard. Le conflit principal réside dans la déception de Félix, qui se voit trompé par Véronique, malgré ses sentiments sincères. Le cadre est une conversation entre amis, où Serge essaie de faire voir à Félix la réalité de la situation amoureuse."
+}}
+-----
+
+-----
+Text: [[[
+"Serge: Félix, il fault qu'on se parle.\n\nFélix: Salut Serge! Bien sûr, lance la bombe!\n\nSerge: Il fault arreter de cajoler Véronique. Ça deviens ridicule.\n\nFélix: Mais qu'est-ce que tu veux que je fasse? J'ai le beguin vers Véronique. Je veux lui faire plaisir et il n'y a rien de mal avec ça.\n\nSerge: Sauf que Véronique batifole avec Richard.\n\nFélix: Tu mens. Véronique n'aime personne d'autre que moi.\n\nSerge: Ne te faites pas d'illusions, mon ami. Cette fille te mène en bateau. J'ai la vu hier dans le parc toute langoureuse avec Richard.\n\nFélix: C'est terrible ce que tu me dis. Tu sais, je me suis entiché d'elle. Je ne peux même pas concevoir qu'elle puisse en pincer pour Richard. Je suis dégouté.\n"
+]]]
+Language: English.
+Response: {{
+    "message": "In this dialogue, Serge and Félix are discussing Félix's romantic interest in Véronique. The conversation reveals that Félix is infatuated with Véronique and is trying to win her affection, despite Serge's warning that Véronique is involved with another man, Richard. Serge's main concern is to confront Félix about his misplaced feelings and to dissuade him from pursuing Véronique, as it is apparent that she is not interested in him. The overarching theme centers on unrequited love and the conflict between Félix’s romantic hopes and the reality of Véronique’s affections."
+}}
+-----
+'''
+user_prompt='''
+Text: [[[
+{message}
+]]]
+Language: {language}
+Response: 
+'''
+
